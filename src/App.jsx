@@ -6,7 +6,7 @@ import TabComponent from './pages/TabComponent';
 import {EXAMPLES} from './data/data.js';
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState('component');
+  const [selectedTopic, setSelectedTopic] = useState();
   const handleClick = (name) => {
     setSelectedTopic(name)
   };
@@ -21,11 +21,12 @@ function App() {
       />
       <TabComponent name="Props" onSelect={() => handleClick('props')} />
       <TabComponent name="State" onSelect={() => handleClick('state')} />
-      <div className="text" id="tab-content">
+      {!selectedTopic ? <p>Please select a topic</p>:null}
+      {selectedTopic ? <div className="text" id="tab-content">
         <h3>{EXAMPLES[selectedTopic].title}</h3>
         <p>{EXAMPLES[selectedTopic].description}</p>
         <code>{EXAMPLES[selectedTopic].code}</code>
-      </div>
+      </div>:null}
     </>
   );
 }
