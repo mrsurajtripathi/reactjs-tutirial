@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import TabComponent from './pages/TabComponent';
-import {EXAMPLES} from './data/data.js';
+import {CORE_CONCEPTS, EXAMPLES} from './data/data.js';
 import Card from './pages/Card.jsx';
 
 function App() {
@@ -17,10 +17,12 @@ function App() {
       <h1>Home</h1>
       <section className='card-section'>
         
-        {[<p>hello</p>,<h1>TEST</h1>]}
+      {[<p>hello</p>,<h1>TEST</h1>]}
 
+      {CORE_CONCEPTS.map((items,id)=>(<Card key={items.title} {...items}/>))}
         <Card title="test" image={viteLogo} description='Simple Test'/>
       </section>
+
       <TabComponent name="JSX" onSelect={() => handleClick('jsx')} />
       <TabComponent
         name="Components"
