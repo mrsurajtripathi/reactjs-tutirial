@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import TabComponent from './pages/TabComponent';
 import {EXAMPLES} from './data/data.js';
+import Card from './pages/Card.jsx';
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -14,6 +15,12 @@ function App() {
   return (
     <>
       <h1>Home</h1>
+      <section className='card-section'>
+        
+        {[<p>hello</p>,<h1>TEST</h1>]}
+
+        <Card title="test" image={viteLogo} description='Simple Test'/>
+      </section>
       <TabComponent name="JSX" onSelect={() => handleClick('jsx')} />
       <TabComponent
         name="Components"
