@@ -21,12 +21,20 @@ function App() {
       />
       <TabComponent name="Props" onSelect={() => handleClick('props')} />
       <TabComponent name="State" onSelect={() => handleClick('state')} />
-      {!selectedTopic ? <p>Please select a topic</p>:null}
+      {/* {!selectedTopic ? <p>Please select a topic</p>:null}
       {selectedTopic ? <div className="text" id="tab-content">
         <h3>{EXAMPLES[selectedTopic].title}</h3>
         <p>{EXAMPLES[selectedTopic].description}</p>
         <code>{EXAMPLES[selectedTopic].code}</code>
-      </div>:null}
+      </div>:null} */}
+
+      {!selectedTopic && <p>Please select a topic</p>}
+      {selectedTopic && <div className="text" id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <code>{EXAMPLES[selectedTopic].code}</code>
+      </div>}
+
     </>
   );
 }
